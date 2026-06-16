@@ -8,25 +8,27 @@ To assist the general railway modeller, I wanted to be able to provide a series 
 
 ### Goals for this node
 
- - For this node is to take advantage of 16 input pins to control routes on my layout.
+ - This node takes advantage of 16 input pins to control 16 routes.
  - Allow for multiple turnouts to be set with a single push button press.
- - Staggered events using a end user global delay.
+ - Staggered events using a end user global delay 0 to 1500ms in 100ms steps.
  - Can bus based using the SN65VHD230 can transceiver using pins D15 for RX and D2 for TX.
- - To use a commercial available modules for breaking out the GPIO from the ESP32 Devkit 1
- - Keeping the code easy for non Arduino Eco-system uses Two lines of code will need amending only.
- - Keeping the CDI in JMRI as easy for the end user to be able to configure it once uploaded to the ESP32.
+ - Uses a commercial available modules for breaking out the GPIO from the ESP32 Devkit 1
+ - Keeping the code easy for non Arduino Eco-system uses.
+ - Only two lines of code will need amending in the Arduino IDE to be able to upload to the ESP32.
+ - Keeping the graphical user interface simple to use in JMRI to configure the node.
  - The node can use a pyhsical mimic panel or just use a glass panel in JMRI.
 
 ### Pin definitions
-The pins that will be used are as follows, as they appear on the shield I use.
+
+The GPIO pins that will be used are as follows, as they appear on the shield I use.
 
 Righthand side facing the 2.1 power jack barrel.
  - D15 RX to the transceiver module.
  - D2 TX to the transceiver module.
- - D4, D16, D17, D5, D18, D19, D21, D22, D23
+ - D4, D16, D17, D5, D18, D19, D21, D22, D23.
 
 
 Lefthand Side.
 
- - D13, ,D12 ,D14, D27, D26, D25, D33, D32, 
+ - D13, ,D12 ,D14, D27, D26, D25, D33, D32. 
    
