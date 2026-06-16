@@ -1,10 +1,10 @@
 # LCC_Mimic_Panel_Node
 
-To assist the general railway modeller, I wanted to be able to provide a series of ESP32 based modules, using off the shelf readily available add on modules form various online vendors. This would allow people who have tried and succeeded with a similar approach for DCC-EX around the world. Then they could take advantage of a can bus based LCB. These will use the OpenLCB Single Thread Library. Which is available from the Arduino library manager. At the moment the end user will need away of connecting their can bus network to a pc running JMRI. there are currently 3 ways to do this. The cost of each node needed to be kept as inexpensive as reasonable as possible. While some may feel DuPont connectors are not an elegant solution for an exhibition layouts. Maybe in the future one of MERGs members who likes to create PCB designs may come up with a PCB to mount the various external devices.
+To assist the general railway modeller, I wanted to be able to provide a series of ESP32 based modules, using off the shelf readily available add on modules form various online vendors. This would allow people who have tried and succeeded with a similar approach for DCC-EX around the world. Then they can take advantage of a can bus based LCB. These nodes use the OpenLCB Single Thread Library. Which is available from the Arduino library manager.The end user will need away of connecting their can bus network to a pc running JMRI. There are currently 3 devices that can do this, listed below with links to there websites. The cost of each node needed to be kept as inexpensive as reasonable as possible. While some may feel DuPont connectors are not an elegant solution for an exhibition layouts. Maybe in the future one of MERGs members who likes to create PCB designs may come up with a PCB to mount the various external devices.
 
-  - MERG's Cansb4
-  - Sprog LCC offers their USB LCC
-  - RR-Circuits LCC Buffer-USB
+  - MERG's Cansb4 https://merg.org.uk
+  - Sprog LCC offers their USB LCC https://www.sprog-dcc.co.uk/lcc/usb-lcc
+  - RR-Circuits LCC Buffer-USB https://www.rr-cirkits.com
 
 ### Goals for this node
 
