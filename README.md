@@ -28,5 +28,5 @@ Righthand side facing the 2.1 power jack barrel.
 
 Lefthand Side.
 
- - D13, D14, D27, D26, D25, D33, D32, D35.
+ - D13, ,D12 ,D14, D27, D26, D25, D33, D32, 
    
