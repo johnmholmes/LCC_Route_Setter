@@ -6,12 +6,12 @@
 
  */
 
-#define NUM_INPUTS 16    // number of buttons requires to match the "pin definition"
+#define NUM_INPUTS 20   // number of buttons requires to match the "pin definition"
 // Pin definitions, if there is no pin assigned use 255
-uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,14,27,26,25,33,32,35};            // for ESP32 
+uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,12,14,27,26,25,33,32,255,255,255,255};            // for ESP32 
 //uint8_t pin[NUM_INPUTS] = { 19, 39, 21, 22, 23, 25, 26, 255,255,255 }; // for Atom
 
-#define NUM_TURNOUTS 6  // number of turnouts in a route changing this requires to the CDI & Memstruct 
+#define NUM_TURNOUTS 8  // number of turnouts in a route changing this requires to the CDI & Memstruct 
 #define NUM_EVENT (NUM_INPUTS + NUM_INPUTS * NUM_TURNOUTS)
 
 /*
@@ -30,8 +30,8 @@ uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,14,27,26,25,33,32,35};     
  To allow direct to JMRI via USB, without CAN controller,
  note: disable debugging if this option is chosen
 */
-#include "GCSerial.h"
-#define NOCAN    
+//#include "GCSerial.h"
+//#define NOCAN    
 //#define DEBUG Serial 
 
 /*
@@ -70,6 +70,17 @@ uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,14,27,26,25,33,32,35};     
 #define _ROUTEEID_9 _ROUTEEID_8, ROUTE(8)
 #define _ROUTEEID_10 _ROUTEEID_9, ROUTE(9)
 #define _ROUTEEID_11 _ROUTEEID_10, ROUTE(10)
+#define _ROUTEEID_12 _ROUTEEID_11, ROUTE(11)
+#define _ROUTEEID_13 _ROUTEEID_12, ROUTE(12)
+#define _ROUTEEID_14 _ROUTEEID_13, ROUTE(13)
+#define _ROUTEEID_15 _ROUTEEID_14, ROUTE(14)
+#define _ROUTEEID_16 _ROUTEEID_15, ROUTE(15)
+#define _ROUTEEID_17 _ROUTEEID_16, ROUTE(16)
+#define _ROUTEEID_18 _ROUTEEID_17, ROUTE(17)
+#define _ROUTEEID_19 _ROUTEEID_18, ROUTE(18)
+#define _ROUTEEID_20 _ROUTEEID_19, ROUTE(19)
+#define _ROUTEEID_21 _ROUTEEID_20, ROUTE(20)
+
 #define _ROUTEEID(n) _ROUTEEID_##n
 #define ROUTEEID(n) _ROUTEEID(n)
 
@@ -91,6 +102,10 @@ uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,14,27,26,25,33,32,35};     
 #define TO14(i) TO13(i), TO(i,13)
 #define TO15(i) TO14(i), TO(i,14)
 #define TO16(i) TO15(i), TO(i,15)
+#define TO17(i) TO16(i), TO(i,16)
+#define TO18(i) TO17(i), TO(i,17)
+#define TO19(i) TO18(i), TO(i,18)
+#define TO20(i) TO19(i), TO(i,19)
 
 #define TON(n,i) TO##n(i)
 #define TOEID(n,i) TON(n,i) // Usage: TOEID(num_to_elements, action_index)
@@ -112,6 +127,10 @@ uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,14,27,26,25,33,32,35};     
 #define ACTION14(n) ACTION13(n), TOEID(n,13)
 #define ACTION15(n) ACTION14(n), TOEID(n,14)
 #define ACTION16(n) ACTION15(n), TOEID(n,15)
+#define ACTION17(n) ACTION16(n), TOEID(n,16)
+#define ACTION18(n) ACTION17(n), TOEID(n,17)
+#define ACTION19(n) ACTION18(n), TOEID(n,18)
+#define ACTION20(n) ACTION19(n), TOEID(n,19)
 
 #define ACTIONN(n,t) ACTION##n(t)
 #define ACTIONEID(n,t) ACTIONN(n,t) // Usage: ACTIONEID(num_actions, num_to_elements)
