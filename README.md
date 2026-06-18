@@ -1,4 +1,4 @@
-# LCC_Mimic_Panel_Node
+# LCC Mimic Panel & Route Setter Nodes
 
 Example files available
 
