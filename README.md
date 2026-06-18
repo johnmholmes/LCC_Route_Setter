@@ -18,9 +18,10 @@ To assist the general railway modeller, I wanted to be able to provide a series 
  - Keeping the graphical user interface simple to use in JMRI to configure the node.
  - The node can use a pyhsical mimic panel or just use a glass panel in JMRI.
 
-c
 
-Esp32 devkit 1 
+### RouteSetter_v1
+
+Esp32 devkit 1 node
 
 40 routes in total 16 controlled by on board inputs 24 routes controlled by remote events from another LCC device, or JMRI
 
@@ -33,5 +34,11 @@ Righthand side facing the 2.1 power jack barrel.
 
 Lefthand Side.
 
- - D13, ,D12 ,D14, D27, D26, D25, D33, D32. 
+ - D13, ,D12 ,D14, D27, D26, D25, D33, D32.
+
+### RouteSetter_v2
+
+Esp32 devkit 1 node
+
+40 routes for external LCC node route setting. This has none of the GPIO pins doing anything. It is just a logix node.
    
