@@ -3,7 +3,7 @@
 Example files available
 
 - RouteSetter_v1 this is for 40 routes with 8 turnouts each. with 16 being controlled by input pins and 24 from external ndoes / JMRI.
-- RouteSetter-v2 this is for 40 routes with 8 turnout seach. All being controll from external nodes / JMRI.
+- RouteSetter_v2 this is for 40 routes with 8 turnout seach. All being controll from external nodes / JMRI.
 
 To assist the general railway modeller, I wanted to be able to provide a series of ESP32 based modules, using off the shelf readily available add on modules form various online vendors. This would allow people who have tried and succeeded with a similar approach for DCC-EX around the world. Then they can take advantage of a can bus based LCB. These nodes use the OpenLCB Single Thread Library. Which is available from the Arduino library manager.The end user will need away of connecting their can bus network to a pc running JMRI. There are currently 3 devices that can do this, listed below with links to there websites. The cost of each node needed to be kept as inexpensive as reasonable as possible. While some may feel DuPont connectors are not an elegant solution for an exhibition layouts. Maybe in the future one of MERGs members who likes to create PCB designs may come up with a PCB to mount the various external devices.
 
