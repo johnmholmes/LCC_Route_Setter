@@ -1,4 +1,4 @@
-// Board choices
+// Board choices available
 
 #define ESP32_BOARD
 //#define ATOM_BOARD
@@ -16,8 +16,8 @@
   #ifndef USEGCSERIAL
     #include "ACAN_ESP32Can.h"
   #endif // USEGCSERIAL
-  #define EEPROMSIZE 2000
-  #define EEPROMbegin EEPROM.begin(EEPROMSIZE);
+  #define EEPROMSIZE 4096
+  #define EEPROMbegin { EEPROM.begin(EEPROMSIZE); dP("\nEEPROM begin "); dP(EEPROMSIZE)
   #define EEPROMcommit { EEPROM.commit(); dP("EEPROM COMMIT"); }
   #define WIRE_begin Wire.begin(26, 32, 100000)  // choose pins for I2C // SDA, SCL
 //
@@ -29,8 +29,6 @@
     #error message("USE_ESP32_BOARD was selected, so must use an ESP32 processor")
   #endif
   #define BOARD "ESP32"
-  //#define NUM_IO  5
-  //#define IOPINS  16,17,18,19,14
   #define CAN_TX_PIN (gpio_num_t) 2
   #define CAN_RX_PIN (gpio_num_t) 15
   #ifndef USEGCSERIAL

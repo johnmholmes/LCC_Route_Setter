@@ -1,25 +1,26 @@
+/*RouteSetter_v1 40 routes 16 push button example for the ESP32 Devkit 1
+==============================================================
+ Adaoted from the original OlcbBasicNode sketch
+   A prototype of a basic 4-channel OpenLCB board
 
-//==============================================================
-// OlcbBasicNode
-//   A prototype of a basic 4-channel OpenLCB board
-//
-//   David Harris 2019, adapted from
-//   Bob Jacobsen 2010, 2012
-//      based on examples by Alex Shepherd and David Harris
-//   Updated 2024.09 DPH
-//   Modified for Route setting by John Holmes June 2026
-//==============================================================
+   David Harris 2019, adapted from
+   Bob Jacobsen 2010, 2012
+      based on examples by Alex Shepherd and David Harris
+   Updated 2024.09 DPH
+   Modified for Route setting by John Holmes & DPH June 2026
+==============================================================
+*/
 
-#include "config.h"
+#include "config.h"               // User defined otions
 #include "mdebugging.h"           // debugging
-//#include "processCAN.h"           // Auto-select CAN library
 #include "processor.h"            // auto-selects the processor type, EEPROM lib etc.
 #include "OpenLCBHeader.h"        // System house-keeping.
-#include "boardChoices.h"
+#include "boardChoices.h"         // Used by intermedates who wish to change the board from ESP32 to Atom only
+#include "memstruct.h"            // Please do not allter the setting in this tab unless an LCC developer
 
 extern "C" {                      // the following are defined as external
-#define N(x) xN(x)  // allow the insertion of the value (x) ..
-#define xN(x) #x    // .. into the CDI string.
+#define N(x) xN(x)                // allow the insertion of the value (x) ..
+#define xN(x) #x                  // .. into the CDI string.
 
 // ===== CDI =====
 //   Configuration Description Information in xml, **must match MemStruct below**
@@ -29,12 +30,13 @@ extern "C" {                      // the following are defined as external
        // vvvvv Enter User definitions below CDIheader line vvvvv
        //       It must match the Memstruct struct{} below
        CDIheader R"(
-         <group>
+         <group replication=')" N(NUM_GROUPS) R"('>
            <name>Route Setter</name>
+           <repname>Group </repname>
            <hints><visibility hideable='yes' hidden='yes' ></visibility></hints>
            <description>Define events associated with input pins or consumer events</description>
-           <group replication=')" N(NUM_INPUTS) R"('>
-             <name>Routes controlled with a single push button</name>
+           <group replication=')" N(GROUP_SIZE) R"('>
+             <name>Routes controlled with a single push button or consumed events. Description can be changed to suit your layout</name>
              <repname>Route </repname>
              <string size='24'><name>Description</name></string>
              <eventid><name>When this event is consumed it will trigger the following events</name></eventid>
@@ -99,11 +101,12 @@ extern "C" {                      // the following are defined as external
 
 extern "C" {
   
-  // ===== eventid Table =====
-  //  Array of the offsets to every eventID in MemStruct/EEPROM/mem, and P/C flags
-  //    -- each eventid needs to be identified as a consumer, a producer or both.
-  //    -- PEID = Producer-EID, CEID = Consumer, and PC = Producer/Consumer
-  //    -- note matching name-references to MemStruct.
+  /* ===== eventid Table =====
+  Array of the offsets to every eventID in MemStruct/EEPROM/mem, and P/C flags
+    -- each eventid needs to be identified as a consumer, a producer or both.
+    -- PEID = Producer-EID, CEID = Consumer, and PC = Producer/Consumer
+    -- note matching name-references to MemStruct.
+  */
 const EIDTab eidtab[NUM_EVENT] PROGMEM = {
     //ROUTEEID(NUM_INPUTS),
     ACTIONEID(NUM_INPUTS, NUM_TURNOUTS),
@@ -141,15 +144,13 @@ void processTurnouts() {
   static long last = 0;
   static int i = 0;
   if( (millis()-last) < turnoutDelay ) return;
-  if( actionIndex[i]>0 ) {                                    // if there is an actionIndex for this button ..
-    //OpenLcb.produce( i*NUM_TURNOUTS + actionIndex[i]-1);    // .. produce a turnout actionIndex
-    //dP("\n  produce "); dP(i*NUM_TURNOUTS + actionIndex[i]-1);
+  if( actionIndex[i]>0 ) {                                        // if there is an actionIndex for this button ..
     OpenLcb.produce( (i+1)*(NUM_TURNOUTS+1) - actionIndex[i]);    // .. produce a turnout actionIndex
     dP("\n  produce "); dP((i+1)*NUM_TURNOUTS - actionIndex[i]);
-    actionIndex[i]--;                                         // .. decrement the actionIndex #
-    last = millis();                                            // remember for next time
-  } else {                                                    // else 
-    if( ++i >= NUM_INPUTS ) i = 0;                            // .. move to the next button
+    actionIndex[i]--;                                             // .. decrement the actionIndex #
+    last = millis();                                              // remember for next time
+  } else {                                                        // else 
+    if( ++i >= NUM_INPUTS ) i = 0;                                // .. move to the next button
   }
 }
 
@@ -159,9 +160,10 @@ void pceCallback(uint16_t index) {
   actionIndex[i] = NUM_TURNOUTS;
 }
 
-// userInitAll() -- include any initialization after Factory reset "Mfg clear" or "User clear"
-//  -- clear or pre-define text variables.
-// USER defined only use 19 characters for the name and 23 for the discription.
+/* userInitAll() -- include any initialization after Factory reset "Mfg clear" or "User clear"
+ -- clear or pre-define text variables.
+ USER defined only use 19 characters for the name and 23 for the discription.
+*/
 void userInitAll() {
     NODECONFIG.put(EEADDR(nodeName), ESTRING( "Route Setter" ) );
     NODECONFIG.put(EEADDR(nodeDesc), ESTRING( "Alpha" ) );
@@ -176,28 +178,34 @@ void userInitAll() {
     }
 }
 
-// userSoftReset() - include any initialization after a soft reset, ie after configuration changes.
-// USER defined
+/*
+ userSoftReset() - include any initialization after a soft reset, ie after configuration changes.
+ USER defined
+*/
 void userSoftReset() {
   dP("\n In userSoftReset()"); Serial.flush();
   REBOOT;  // defined in processor.h for each mpu
 }
 
-// userHardReset() - include any initialization after a hard reset, ie on boot-up.
-// USER defined
+/* 
+userHardReset() - include any initialization after a hard reset, ie on boot-up.
+ USER defined
+*/
 void userHardReset() {
   dP("\n In userHardReset()"); Serial.flush();
   REBOOT;  // defined in processor.h for each mpu
 }
 
-// ===== Callback from a Configuration write =====
-// Use this to detect changes in the node's configuration
-// This may be useful to take immediate action on a change.
-// param address - address in space of change
-// param length  - length of change
-// NB: if address=0 and length==0xffff, then user indicated UPDATE_COMPLETE
-//
-// USER defined
+/* 
+===== Callback from a Configuration write =====
+ Use this to detect changes in the node's configuration
+ This may be useful to take immediate action on a change.
+ param address - address in space of change
+ param length  - length of change
+ NB: if address=0 and length==0xffff, then user indicated UPDATE_COMPLETE
+ USER defined
+
+*/
 void userConfigWritten(uint32_t address, uint16_t length, uint16_t func) {
     dP("\nuserConfigWritten "); dPH((uint32_t)address);
     dP(" length="); dPH((uint16_t)length);
@@ -223,7 +231,7 @@ void setup() {
     uint8_t x = EEPROM.read(i);
     if(x<16)dP(0); dPH(x); dP(" ");
   }
-  //dP("\n Size of MemStruct = "); dP(sizeof(MemStruct));
+  //dP("\n Size of MemStruct = "); dP(sizeof(MemStruct)); Caused issues so not used
   dP("\n Number of events = "); dP(NUM_EVENT);
   for(int i=0; i<NUM_INPUTS; i++) {
     pinMode( pin[i], INPUT_PULLUP );
