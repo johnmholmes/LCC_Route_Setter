@@ -16,13 +16,14 @@ To assist the general railway modeller, I wanted to be able to provide a series 
 
  - This node takes advantage of 16 input pins to control 16 routes.
  - Allow for multiple turnouts to be set with a single push button press.
- - Staggered events using a end user global delay 0 to 1500ms in 100ms steps.
+ - Staggered events using a end user global delay 0 to 2000ms in 100ms steps.
  - Can bus based using the SN65VHD230 can transceiver using pins D15 for RX and D2 for TX.
  - Uses a commercial available modules for breaking out the GPIO from the ESP32 Devkit 1
  - Keeping the code easy for non Arduino Eco-system uses.
  - Only two lines of code will need amending in the Arduino IDE to be able to upload to the ESP32.
  - Keeping the graphical user interface simple to use in JMRI to configure the node.
  - The node can use a pyhsical mimic panel or just use a glass panel in JMRI.
+ - M5Sack Atom support 40 routes controlled from external nodes or JMRI
 
 
 ### RouteSetter_v1
