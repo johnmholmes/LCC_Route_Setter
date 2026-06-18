@@ -6,7 +6,9 @@
 - RouteSetter_v2 this is for 40 routes with 8 turnouts each. All being controlled from external nodes / JMRI. ESP32 Devkit 1 based nodebased node
 - RouteSetter_v3 This is for 40 routes with 8 channels each. All being controlled from external nodes / JMRI. M5Stack Atom Lite based node
 
-**Disclaimer and Limitation of Liability**
+---
+
+## Disclaimer and Limitation of Liability
 
 This sketch (software) has been developed specifically for the **ESP32 DevKit 1** and the **SN65VHD230** CAN transceiver module. It has only been tested on the author’s personal model railway layout.
 
