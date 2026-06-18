@@ -1,6 +1,6 @@
 # LCC Mimic Panel & Route Setter Nodes
 
-Example files available
+## Example files available
 
 - RouteSetter_v1 this is for 40 routes with 8 turnouts each. with 16 being controlled by input pins and 24 from external ndoes / JMRI. ESP32 Devkit 1 based node
 - RouteSetter_v2 this is for 40 routes with 8 turnouts each. All being controlled from external nodes / JMRI. ESP32 Devkit 1 based nodebased node
@@ -25,6 +25,8 @@ By downloading, using, or modifying this sketch, you acknowledge that you assume
 The author reserves the right to modify or remove this sketch at any time without notice.
 
 ---
+
+## Node introduction
 
 To help the wider railway modelling community, I set out to develop a series of ESP32-based modules that use readily available off-the-shelf add-on boards from popular online suppliers.
 This approach builds on the success many modellers around the world have already had with similar Arduino solutions for DCC-EX. It allows them to easily adopt a CAN bus-based OpenLCB (Layout Command Bus) system. The nodes run the OpenLCB Single Thread Library, which is available directly through the Arduino Library Manager.
