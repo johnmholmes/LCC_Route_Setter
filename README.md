@@ -18,7 +18,11 @@ To assist the general railway modeller, I wanted to be able to provide a series 
  - Keeping the graphical user interface simple to use in JMRI to configure the node.
  - The node can use a pyhsical mimic panel or just use a glass panel in JMRI.
 
-### Pin definitions
+c
+
+Esp32 devkit 1 
+
+40 routes in total 16 controlled by on board inputs 24 routes controlled by remote events from another LCC device, or JMRI
 
 The GPIO pins that will be used are as follows, as they appear on the shield I use.
 
@@ -26,7 +30,6 @@ Righthand side facing the 2.1 power jack barrel.
  - D15 RX to the transceiver module.
  - D2 TX to the transceiver module.
  - D4, D16, D17, D5, D18, D19, D21, D22, D23.
-
 
 Lefthand Side.
 
