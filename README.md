@@ -47,4 +47,10 @@ Lefthand Side.
 Esp32 devkit 1 node
 
 40 routes for external LCC node route setting. This has none of the GPIO pins doing anything. It is just a logix node.
+
+### RouteSetter_v3
+
+M5Stack Atom Lite with the M5Stack MiniCan module
+
+40 routes for external LCC node route setting. This has none of the GPIO pins doing anything. It is just a logix node.
    
