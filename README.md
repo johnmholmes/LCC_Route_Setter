@@ -1,5 +1,7 @@
 # LCC Mimic Panel & Route Setter Nodes
 
+The wiki will have more details on the actual hardware. This will be populated over the next few days. 19 June 2026
+
 ## Example files available
 
 - ESP32_16inputRouteSetter_v1 this is for 16 routes with 8 turnouts each. Controlled by input pins or can use consumed events from JMRI . ESP32 Devkit 1 based node
