@@ -3,7 +3,7 @@
 ## Example files available
 
 - ESP32_16inputRouteSetter_v1 this is for 16 routes with 8 turnouts each. Controlled by input pins or can use consumed events from JMRI . ESP32 Devkit 1 based node
-- ESP32_40RouteSetter_v1 this is for 40 routes with 8 turnouts each. All being controlled from external nodes or JMRI. ESP32 Devkit 1 based nodebased node
+- ESP32_40RouteSetter_v1 this is for 40 routes with 8 turnouts each. All being controlled from external nodes or JMRI. ESP32 Devkit 1 based node.
 - Atom_40RouteSetter_v1 This is for 40 routes with 8 channels each. All being controlled from external nodes or JMRI. M5Stack Atom Lite based node
 
 ---
