@@ -7,13 +7,13 @@
  */
 #define EEPROMSIZE 4096
 #define GROUP_SIZE 8
-#define NUM_GROUPS 5
-#define NUM_INPUTS 40   // CALC BY HAND number of input buttons + Number routes required, requires to match the "pin definition"
+#define NUM_GROUPS 2
+#define NUM_INPUTS 16   // CALC BY HAND number of input buttons + Number routes required, requires to match the "pin definition"
 // check the above is right:
 static_assert(NUM_INPUTS == (GROUP_SIZE * NUM_GROUPS), "NUM_INPUTS must equal GROUP_SIZE * NUM_GROUPS!");
 
 // Pin definitions, if there is no pin assigned use 255
-uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,12,14,27,26,25,33,32,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255};            // for ESP32 
+uint8_t pin[NUM_INPUTS] = { 4,16,17,5,18,19,21,22,13,12,14,27,26,25,33,32};            // for ESP32 
 //uint8_t pin[NUM_INPUTS] = {39,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255 }; // for Atom
 
 #define NUM_TURNOUTS 8  // number of turnouts in a route changing this requires to the CDI & Memstruct 

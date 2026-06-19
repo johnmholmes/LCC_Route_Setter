@@ -1,4 +1,4 @@
-/*RouteSetter_v1 40 routes 16 push button example for the ESP32 Devkit 1
+/*16 input RouteSetter_v1 16 push button example for the ESP32 Devkit 1
 ==============================================================
  Adaoted from the original OlcbBasicNode sketch
    A prototype of a basic 4-channel OpenLCB board
