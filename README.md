@@ -2,15 +2,15 @@
 
 ## Example files available
 
-- RouteSetter_v1 this is for 40 routes with 8 turnouts each. with 16 being controlled by input pins and 24 from external ndoes / JMRI. ESP32 Devkit 1 based node
-- RouteSetter_v2 this is for 40 routes with 8 turnouts each. All being controlled from external nodes / JMRI. ESP32 Devkit 1 based nodebased node
-- RouteSetter_v3 This is for 40 routes with 8 channels each. All being controlled from external nodes / JMRI. M5Stack Atom Lite based node
+- ESP32_16inputRouteSetter_v1 this is for 16 routes with 8 turnouts each. Ccontrolled by input pins or can use consumed events from JMRI . ESP32 Devkit 1 based node
+- ESP32_40RouteSetter_v1 this is for 40 routes with 8 turnouts each. All being controlled from external nodes or JMRI. ESP32 Devkit 1 based nodebased node
+- Atom_40RouteSetter_v1 This is for 40 routes with 8 channels each. All being controlled from external nodes or JMRI. M5Stack Atom Lite based node
 
 ---
 
 ## Disclaimer and Limitation of Liability
 
-This sketch (software) has been developed specifically for the **ESP32 DevKit 1** and the **SN65VHD230** CAN transceiver module. It has only been tested on the author’s personal model railway layout.
+This sketch (software) has been developed specifically for the **ESP32 DevKit 1** and the **SN65VHD230** CAN transceiver module, or the M5Stack Atom Lite with their MiniCan module. It has only been tested on the author’s personal model railway layout.
 
 **The sketch is provided “AS IS” and “AS AVAILABLE”**, without any warranties or guarantees of any kind. The author explicitly disclaims all warranties, whether express, implied, or statutory, including but not limited to any warranties of merchantability, fitness for a particular purpose, accuracy, reliability, or non-infringement.
 
@@ -53,11 +53,11 @@ I have kept the cost of each node as low as reasonably possible. While some mode
  - M5Sack Atom support 40 routes controlled from external nodes or JMRI
 
 
-### RouteSetter_v1
+### ESP32_16inputRouteSetter_v1
 
 Esp32 devkit 1 node
 
-40 routes in total 16 controlled by on board inputs 24 routes controlled by remote events from another LCC device, or JMRI
+16 routes in total 16 controlled by on board inputs 
 
 The GPIO pins that will be used are as follows, as they appear on the shield I use.
 
@@ -70,13 +70,13 @@ Lefthand Side.
 
  - D13, ,D12 ,D14, D27, D26, D25, D33, D32.
 
-### RouteSetter_v2
+### ESP32_40RouteSetter_v1
 
 Esp32 devkit 1 node
 
 40 routes for external LCC node route setting. This has none of the GPIO pins doing anything. It is just a logix node.
 
-### RouteSetter_v3
+### Atom_40RouteSetter_v1
 
 M5Stack Atom Lite with the M5Stack MiniCan module
 
