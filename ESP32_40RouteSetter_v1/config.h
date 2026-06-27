@@ -5,6 +5,21 @@
  - The NUM_INPUTS must match the array count of pins
 
  */
+
+/*
+ Node ID --- this must come from a range controlled by the user.
+ See: http://registry.openlcb.org/uniqueidranges
+ To choose a new NODEID edit this address
+*/
+#define NODE_ADDRESS 0x05,0x01,0x01,0x01,0x8E,0x03  // DIY range example, not for global use.
+
+/* Set to 1 to Force Reset to Factory Defaults, else 0.
+ This needs to be done at least once for each new board.
+*/
+#define RESET_TO_FACTORY_DEFAULTS 1
+
+//============================================================
+
 #define EEPROMSIZE 4096
 #define GROUP_SIZE 8
 #define NUM_GROUPS 5
@@ -19,18 +34,6 @@ uint8_t pin[NUM_INPUTS] = { 255,255,255,255,255,255,255,255,255,255,255,255,255,
 
 #define NUM_TURNOUTS 8  // number of turnouts in a route changing this requires to the CDI & Memstruct 
 #define NUM_EVENT (NUM_INPUTS + NUM_INPUTS * NUM_TURNOUTS)
-
-/*
- Node ID --- this must come from a range controlled by the user.
- See: http://registry.openlcb.org/uniqueidranges
- To choose a new NODEID edit this address
-*/
-#define NODE_ADDRESS 5,1,1,1,0x8E,0x01  // DIY range example, not for global use.
-
-/* Set to 1 to Force Reset to Factory Defaults, else 0.
- This needs to be done at least once for each new board.
-*/
-#define RESET_TO_FACTORY_DEFAULTS 1
 
 /* Send GC to Serial
  To allow direct to JMRI via USB, without CAN controller,
