@@ -1,11 +1,4 @@
 /*
- Application definitions:
- 
- - The end user can alter the number of inputs without the need to change the CDI & Memstruct
- - The NUM_INPUTS must match the array count of pins
-
- */
-/*
  Node ID --- this must come from a range controlled by the user.
  See: http://registry.openlcb.org/uniqueidranges
  To choose a new NODEID edit this address
