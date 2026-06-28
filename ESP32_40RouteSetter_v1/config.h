@@ -47,7 +47,7 @@ uint8_t pin[NUM_INPUTS] = { 255,255,255,255,255,255,255,255,255,255,255,255,255,
 #define MANU "J Holmes"         // The manufacturer of node
 #define MODEL "ESP32"           // The model of the board
 #define HWVERSION "ESP32 Dev1"  // Hardware version
-#define SWVERSION "0.1"         // Software version
+#define SWVERSION "1.0.1"         // Software version
 
 /*
   ************** End of USER DEFINTIONS *****************************
