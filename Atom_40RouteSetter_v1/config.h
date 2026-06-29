@@ -1,7 +1,11 @@
-
-
+/*
+ Node ID --- this must come from a range controlled by the user.
+ See: http://registry.openlcb.org/uniqueidranges
+ To choose a new NODEID edit this address
+*/
 
 // To set a new nodeid edit the next line
+
 #define NODE_ADDRESS 0x05,0x01,0x01,0x01,0x8E,0x03  // DIY range example, not for global use.
 
 /* Set to 1 to Force Reset to Factory Defaults, else 0.
@@ -46,7 +50,7 @@ uint8_t pin[NUM_INPUTS] = {255,255,255,255,255,255,255,255,255,255,255,255,255,2
 #define MANU "J Holmes"         // The manufacturer of node
 #define MODEL "ESP32"           // The model of the board
 #define HWVERSION "ESP32 Dev1"  // Hardware version
-#define SWVERSION "0.1"         // Software version
+#define SWVERSION "1.0.1"         // Software version
 
 /*
   ************** End of USER DEFINTIONS *****************************
